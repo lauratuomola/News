@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Uutiset</title>
+    </head>
+
+    <body>
+        <h2>Add a new piece of news</h2>
+        <form th:action="@{/uutinen}" method="POST" enctype="multipart/form-data">
+            Header:
+            <input type="text" name="header"/>
+            Ingressi:
+            <input type="text" name="ingressi"/>
+            Text:
+            <input type="text" name="text"/>
+            Add a photo: 
+            <input type="file" name="file" id="file"/>
+            <input type="submit" value="add"/>
+        </form>
+    </body>
+</html>
