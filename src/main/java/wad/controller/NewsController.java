@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class NewsController {
     
     @GetMapping("*")
-    @ResponseBody
+    
     public String home() {
-        return "Hello World!";
+        return "index";
     }
     
 }
