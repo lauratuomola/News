@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>News</title>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"/>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+
+    </head>
+
+    <body>
+       
+        <h2 class="bg-success">Add a new category</h2>
+        
+        <form tc:action="@{/addnews}" method="POST">
+            Category name:<br></br>
+            <input type="text"  name="categoryName"/>
+            <input type="submit" value="add"/>
+            
+        </form>
+
+
+        <br></br>
+        <a href="/uutinen" th:href="@{/}">Go back to frontpage</a>
+
+    </body>
+</html>

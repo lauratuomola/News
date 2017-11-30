@@ -5,15 +5,29 @@
         
         <title>News</title>
         
+         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"/>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        
     </head>
 
     <body>
-        <div class="topnav" id="myTopnav">
-            <a class="active" href="/uutinen">Lisää uusi uutinen</a>
-            <a href="#news">News</a>
+        <div class="bg-success" id="myTopnav">
+            <a class="active" href="/addnews">Lisää uusi uutinen</a>
+            <a class="active" href="/addcategory">Lisää uusi kategoria</a>
             <a href="#contact">Contact</a>
             <a href="#about">About</a>
         </div>
+        
+        <ul>
+            
+            <li th:each="news : ${news}">
+                <span th:text="${news.header}">News header</span> 
+                <span th:text="${news.ingres}">News ingres</span>
+            </li>
+            
+        </ul>
+        
 
         
     </body>
