@@ -36,7 +36,7 @@ public class NewsController {
     public String listhome(Model model) {
         PageRequest pageable = PageRequest.of(0, 5, Sort.Direction.DESC, "newsDate");
         model.addAttribute("news", newsRepository.findAll(pageable));
-        
+        model.addAttribute("categories", categoryRepository.findAll());
         return "index";
     }
 

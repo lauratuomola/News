@@ -15,9 +15,17 @@
         <div class="bg-success" id="myTopnav">
             <a class="active" href="/addnews">Lisää uusi uutinen</a>
             <a class="active" href="/addcategory">Lisää uusi kategoria</a>
-            <a href="#contact">Contact</a>
-            <a href="#about">About</a>
+            <a class="active" href="/addcategory">Kategoriat</a>
+            
         </div>
+        <ul>
+            
+            <li th:each="category : ${categories}">
+                <span th:text="${category.categoryName}">Category CategoryName</span> 
+           
+            </li>
+            
+        </ul>
         
         <ul>
             
