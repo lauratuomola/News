@@ -15,27 +15,26 @@
         <div class="bg-success" id="myTopnav">
             <a class="active" href="/addnews">Lisää uusi uutinen</a>
             <a class="active" href="/addcategory">Lisää uusi kategoria</a>
-            <a class="active" href="/addcategory">Kategoriat</a>
+            
             
         </div>
-        <ul>
-            
-            <li th:each="category : ${categories}">
-                <span th:text="${category.categoryName}">Category CategoryName</span> 
-           
+        <p>All categories:</p>
+         <ul>
+            <li th:each="category: ${categories}">
+                <a th:href="@{/{categoryid}(categoryid=${category.id})}" th:text="${category.categoryName}">Category CategoryName</a>
             </li>
-            
         </ul>
         
-        <ul>
-            
-            <li th:each="news : ${news}">
-                <span th:text="${news.header}">News header</span> 
-                <span th:text="${news.ingres}">News ingres</span>
+        <p>The latest 5 news:</p>
+         <ul>
+            <li th:each="news: ${news}">
+                <a th:href="@{/{id}(id=${news.id})}" th:text="${news.header}+${news.ingres}">header ingres</a>
+                
             </li>
-            
         </ul>
         
+        
+      
 
         
     </body>

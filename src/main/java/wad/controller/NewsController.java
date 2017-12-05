@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package wad.controller;
 
 import java.awt.print.Pageable;
@@ -79,6 +75,25 @@ public class NewsController {
         
         
         return "redirect:/addcategory";
+    }
+    
+//    @GetMapping("/{categoryid}")
+//    public String list(Model model, @PathVariable Long categoryid) {
+//        Category category=this.categoryRepository.getOne(categoryid);
+//        model.addAttribute("category", category);
+//        model.addAttribute("news", this.newsRepository.findAll());
+//         
+//
+//        return "category";
+//    }
+    
+    @GetMapping("/{id}")
+    public String news(Model model, @PathVariable Long id) {
+        News news=this.newsRepository.getOne(id);
+        System.out.println(news);
+        newsRepository.save(news);
+        model.addAttribute("news", news);
+        return "news";
     }
 
 }
