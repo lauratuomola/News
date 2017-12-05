@@ -19,19 +19,19 @@
             
         </div>
         <p>All categories:</p>
-         <ul>
-            <li th:each="category: ${categories}">
+         <table>
+            <tr th:each="category: ${categories}">
                 <a th:href="@{/{categoryid}(categoryid=${category.id})}" th:text="${category.categoryName}">Category CategoryName</a>
-            </li>
-        </ul>
+            </tr>
+        </table>
         
         <p>The latest 5 news:</p>
-         <ul>
-            <li th:each="news: ${news}">
+         <table>
+            <tr th:each="news: ${news}">
                 <a th:href="@{/{id}(id=${news.id})}" th:text="${news.header}+${news.ingres}">header ingres</a>
                 
-            </li>
-        </ul>
+            </tr>
+        </table>
         
         
       

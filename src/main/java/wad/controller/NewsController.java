@@ -11,6 +11,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -60,6 +61,12 @@ public class NewsController {
 //        news.getCategory().add(category);
         return "redirect:/addnews";
     }
+    @DeleteMapping("/addnews/{id}")
+    public String remove(Model model, @PathVariable Long newsId) {
+        newsRepository.deleteById(newsId);
+        return "redirect:/addnews";
+    }
+    
     
      @GetMapping("/addcategory")
     public String category(Model model) {

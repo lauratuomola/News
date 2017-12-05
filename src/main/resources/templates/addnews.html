@@ -12,13 +12,20 @@
 
     <body>
         <p> All news in database </p>
-        <ul>
+        
+                 
+        <table
+            <tr>
+                <th>News name</th>
+                <th></th>
+            </tr>
             
-            <li th:each="news : ${news}">
+            <tr th:each="news : ${news}">
                 <span th:text="${news.header}">News header</span> 
                 <span th:text="${news.newsDate}">News newsDate</span>
-            </li>
-        </ul>
+                <form th:action="@{/addnews/{id}(news=${news.id})}" th:method="DELETE"><input type="submit" value="Delete"/></form>
+            </tr>
+        </table>
         
         <h2 class="bg-success">Add a new piece of news</h2>
         
