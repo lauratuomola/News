@@ -21,6 +21,12 @@ public class NewsController {
     @Autowired
     private CategoriesRepository categoryRepository;
 
+    @GetMapping("news")
+    public String list(Model model) {
+        model.addAttribute("news", this.newsRepository.findAll());
+        return "news/list";
+    }
+    
     @GetMapping("news/add")
     public String add(Model model) {
         model.addAttribute("news", this.newsRepository.findAll());

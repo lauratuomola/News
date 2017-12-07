@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+ 
+    <head>
+        <title>Uutiset</title>
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"/>
+
+        <script src="https://www.w3schools.com/lib/w3.js"></script>
+    </head>
+
+    <body>
+        <header style="padding-bottom: 40px">
+            <span w3-include-html="../navigation"></span>
+        </header>
+
+        <div style="padding: 15px;" class="main">
+            <h2>Uutiset</h2>
+
+            <ul>
+                <section th:each="n: ${news}">
+                    <li><a th:href="@{/news/{id}(id=${n.id})}" th:text="${n.header}">header</a></li>
+                </section>                
+            </ul>
+        </div>
+    </body>
+</html>
+
+<script>
+    w3.includeHTML();
+</script>

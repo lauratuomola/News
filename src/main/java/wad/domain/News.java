@@ -35,5 +35,9 @@ public class News extends AbstractPersistable<Long>{
      public void addCategory(Category category) {
        this.categories.add(category);
     }
+     
+     public void removeCategory(Category category) {
+       this.categories.remove(category);
+    }
     
 }

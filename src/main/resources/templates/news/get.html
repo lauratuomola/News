@@ -33,6 +33,16 @@
 
                 Luontihetki: <p th:text="${timestamp}">timestamp</p>
             </div>
+            
+            <span style="margin-top: 20px;"></span>
+            
+            <div class="row" style="padding: 15px;">
+                <input class="btn btn-warning col-xs-3" value="Muokkaa uutista" disabled/>
+                
+                <form th:action="@{/news/{id}(id=${news.id})}" th:method="DELETE">
+                    <input class="btn btn-danger col-xs-3 col-xs-offset-1" type="submit" value="Poista uutinen"/>
+                </form>
+            </div>            
         </div>
     </body>
 </html>

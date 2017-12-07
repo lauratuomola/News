@@ -25,6 +25,16 @@
                     <li><a th:href="@{/news/{id}(id=${news.id})}" th:text="${news.header}">header</a></li>
                 </section>                
             </ul>
+            
+            <span style="margin-top: 20px;"></span>
+            
+            <div class="row" style="padding: 15px;">
+                <input class="btn btn-warning col-xs-3" value="Muokkaa kategoriaa" disabled/>
+                
+                <form th:action="@{/categories/{id}(id=${category.id})}" th:method="DELETE">
+                    <input class="btn btn-danger col-xs-3 col-xs-offset-1" type="submit" value="Poista kategoria"/>
+                </form>
+            </div>
         </div>
     </body>
 </html>
