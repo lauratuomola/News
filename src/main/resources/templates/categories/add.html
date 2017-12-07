@@ -15,14 +15,26 @@
             <span w3-include-html="../navigation"></span>
         </header>
             
-        <div class="main">
-            <h2 class="bg-success">Lisää uusi kategoria</h2>
+        <div class="main" style="padding: 15px;">
+            <h2 class="bg-success" style="margin-bottom: 20px;">Lisää uusi kategoria</h2>
 
             <form th:action="@{/categories}" method="POST" enctype="multipart/form-data">
-                Nimi:<br></br>
-                <input type="text"  name="name"/>
-                <input type="checkbox" name="inNavBar"/>
-                <input type="submit" value="add"/>
+                
+                <div class="row">
+                    <label class="col-xs-4">Nimi</label>
+                    <input class="col-xs-3" type="text" name="name"/>
+                    
+                    <br><br>
+                </div>
+                
+                <div class="row">
+                  <label class="col-xs-4">Näytetään navigaatiopalkissa</label>
+                  <input type="checkbox" name="inNavBar"/>
+                  
+                  <br>
+                </div>
+
+                <input class="btn btn-success" type="submit" value="Lisää"/>
             </form>
         </div>
     </body>
