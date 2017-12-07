@@ -6,7 +6,6 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"/>
 
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
         <script src="https://www.w3schools.com/lib/w3.js"></script>        
     </head>
 
@@ -15,19 +14,16 @@
             <span w3-include-html="../navigation"></span>
         </header>        
 
-        <p>Kategoriat:</p>
-         <table>
-            <tr th:each="category: ${categories}">
-                <a th:href="@{/categories/{id}(id=${category.id})}" th:text="${category.name}">Category Name</a>
-            </tr>
-        </table>
-        
-        <p>The latest 5 news:</p>
-         <table>
-            <tr th:each="news: ${news}">
-                <a th:href="@{/news/{id}(id=${news.id})}" th:text="${news.header}+${news.ingres}">header ingres</a>
-            </tr>
-        </table>
+        <div class="main" style="padding: 15px;">
+            
+           <table>
+                <tr th:each="news: ${news}">
+
+                    <h4 style="padding: 20px;"><a th:href="@{/news/{id}(id=${news.id})}" th:text="${news.header}">header</a></h4>
+                    <p th:text="${news.ingres}">ingres</p>
+                </tr>
+            </table>          
+        </div>
     </body>
 </html>
 

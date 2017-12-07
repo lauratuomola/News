@@ -4,4 +4,5 @@ jdk:
 
 deploy:
   provider: heroku
+  api_key: "947dc24f-3820-41b1-a297-c76a7025cb48"
   app: uutiset
