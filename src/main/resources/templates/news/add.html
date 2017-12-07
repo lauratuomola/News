@@ -5,43 +5,85 @@
     </head>
 
     <body>
-        <!-- <table>
-            <tr>
-                <th>News name</th>
-                <th></th>
-            </tr>
-            
-            <tr th:each="news : ${news}">
-                <span th:text="${news.header}">News header</span> 
-                <span th:text="${news.createdAt}">News creat</span>
-                <form th:action="/news/@{/{id}(id=${news.id})}" th:method="DELETE"><input type="submit" value="Delete"/></form>
-            </tr>
-        </table> -->
-        
-        <h2 class="bg-success">Add a new piece of news</h2>
-        
-        <form th:action="@{/news}" method="POST" enctype="multipart/form-data">
-            Header:<br></br>
-            <input type="text"  name="header"/><br></br>
-            Ingressi:<br></br>
-            <input type="text"  name="ingres"/><br></br>
-            Text:<br></br>
-            <textarea name="text" rows="10" cols="30"></textarea><br></br>
-            Category:
-             <select name="text">
-                <option th:each="category: ${categories}" th:value="${category.id}" th:text="${category.name}">Category Name</option>
-            </select><br></br>
-            Add a photo: 
-            <input type="file" name="file" id="file"/><br></br>
-            <input type="submit" value="add"/>
 
-        </form>
-  
-        <br></br>
-        <a href="/">Go back to frontpage</a>
+        <div class="main" style="padding: 15px;">
+            <h2 class="bg-success" style="margin-bottom: 20px;">Uusi uutinen</h2>
+
+            <form>
+                <div class="row">
+                    <label class="col-xs-4">Otsikko</label>
+                    <input id="header" class="col-xs-3" type="text" name="header"/>
+                    
+                    <br><br>
+                </div>
+                
+                <div class="row">
+                    <label class="col-xs-4">Ingressi</label>
+                    <input id="ingres" class="col-xs-3" type="text" name="ingres"/>
+                    
+                    <br><br>
+                </div>
+                
+                <div class="row">
+                    <label class="col-xs-4">Teksti</label>
+                    <textarea id="text" class="col-xs-8" rows="10" name="text"></textarea>
+                    
+                    <br><br>
+                </div>
+                
+                <div id="categories" class="row">
+                  <label class="col-xs-4">Kategoriat</label>
+
+                  <span>
+                    <tr th:each="category: ${categories}">
+                        <label th:text="${category.name}">Category name</label>
+                        <input type="checkbox" />
+                    </tr>                      
+                  </span>
+
+                  <br></br>
+                </div>
+                
+                <div class="row">
+                    <label class="col-xs-2">Kuva</label>
+                    <input class="col-xs-2" type="file" name="file" id="file"/><br></br>
+                </div>
+                
+                <input class="btn btn-success" value="Lisää" onclick="add()"/>
+            </form>
+        </div>
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"/>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>        
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     </body>
 </html>
+
+<script>
+
+    function add() {
+
+        var categoriesSelected = [];
+        
+        var checkboxHTMLTags = $("#categories").children()[1].children;
+
+        for (var i = 1; i < checkboxHTMLTags.length; i+= 2) {
+            categoriesSelected.push(checkboxHTMLTags[i].checked);
+        }
+        
+        var data = {
+            header: $("#header").val(),
+            ingres: $("#ingres").val(),
+            text:   $("#text").val(),
+            categoriesSelected: categoriesSelected
+        };
+        
+        console.log(data);
+        
+        $.post("/news", data, function(res) {
+        
+        })
+        
+    }
+</script>

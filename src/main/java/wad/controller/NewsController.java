@@ -29,7 +29,12 @@ public class NewsController {
     }
 
     @PostMapping("news")
-    public String create(@RequestParam String header, String ingres, String text) {
+    public String create(@RequestParam String header, String ingres, String text, boolean[] categoriesSelected) {
+        System.out.println(header);
+        System.out.println(ingres);
+        System.out.println(text);
+        for (boolean b : categoriesSelected) System.out.println(b);
+        
         News news = new News();
 
         news.setHeader(header);
