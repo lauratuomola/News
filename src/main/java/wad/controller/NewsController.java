@@ -1,9 +1,6 @@
 
 package wad.controller;
 
-import java.awt.print.Pageable;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -28,14 +25,6 @@ public class NewsController {
     private NewsRepository newsRepository;
     @Autowired
     private CategoryRepository categoryRepository;
-
-    @GetMapping("/")
-    public String listhome(Model model) {
-        PageRequest pageable = PageRequest.of(0, 5, Sort.Direction.DESC, "newsDate");
-        model.addAttribute("news", newsRepository.findAll(pageable));
-        model.addAttribute("categories", categoryRepository.findAll());
-        return "index";
-    }
 
     @GetMapping("/addnews")
     public String list(Model model) {
@@ -62,8 +51,8 @@ public class NewsController {
         return "redirect:/addnews";
     }
     @DeleteMapping("/addnews/{id}")
-    public String remove(Model model, @PathVariable Long newsId) {
-        newsRepository.deleteById(newsId);
+    public String remove(Model model, @PathVariable Long id) {
+        newsRepository.deleteById(id);
         return "redirect:/addnews";
     }
     

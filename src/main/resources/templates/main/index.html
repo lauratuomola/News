@@ -21,8 +21,11 @@
         <p>All categories:</p>
          <table>
             <tr th:each="category: ${categories}">
+                
                 <a th:href="@{/{categoryid}(categoryid=${category.id})}" th:text="${category.categoryName}">Category CategoryName</a>
+            
             </tr>
+             
         </table>
         
         <p>The latest 5 news:</p>
@@ -33,9 +36,6 @@
             </tr>
         </table>
         
-        
-      
-
-        
+                  
     </body>
 </html>

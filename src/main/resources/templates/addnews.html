@@ -23,7 +23,7 @@
             <tr th:each="news : ${news}">
                 <span th:text="${news.header}">News header</span> 
                 <span th:text="${news.newsDate}">News newsDate</span>
-                <form th:action="@{/addnews/{id}(news=${news.id})}" th:method="DELETE"><input type="submit" value="Delete"/></form>
+                <form th:action="@{/{news}(news=${news.id})}" th:method="DELETE"><input type="submit" value="Delete"/></form>
             </tr>
         </table>
         
