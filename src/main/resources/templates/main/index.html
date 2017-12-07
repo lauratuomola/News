@@ -17,10 +17,11 @@
         <div class="main" style="padding: 15px;">
             
            <table>
-                <tr th:each="news: ${news}">
-
-                    <h4 style="padding: 20px;"><a th:href="@{/news/{id}(id=${news.id})}" th:text="${news.header}">header</a></h4>
-                    <p th:text="${news.ingres}">ingres</p>
+                <tr class="row" th:each="news: ${news}">
+                    <div style="border: 2px solid black;" class="col-xs-offset-3 col-xs-4">
+                        <h4><a th:href="@{/news/{id}(id=${news.id})}" th:text="${news.header}">header</a></h4>
+                         <p th:text="${news.ingres}">ingres</p>
+                    </div>
                 </tr>
             </table>          
         </div>

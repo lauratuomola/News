@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
     <head>
-
-
         <title>News name</title>
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
@@ -12,17 +10,30 @@
     </head>
 
     <body>
-        <h1 th:text="${news.header}">news header</h1>
-        <p>published:</p>
-        <p th:text="${news.createdAt}">news createdAt</p>
-        <p>modified:</p>
-        <p th:text="${news.updatedAt}">news updatedAt</p>        
-        <h4 th:text="${news.ingres}">news ingressi</h4>
-        <p th:text="${news.text}">news text</p>
+    
+        <header style="padding-bottom: 40px">
+            <span w3-include-html="../navigation"></span>
+        </header>
+        
+        <div class="main" style="padding: 15px;">
+            
+            <h1 class="bg-success" th:text="${news.header}">header</h1>
+        
+            <span style="margin-bottom: 30px;"/>
+                  
+            <div style="padding: 15px;">
+                <strong>
+                    <p th:text="${news.ingres}">ingressi</p>
+                </strong>
 
+                <span style="margin-bottom: 20px;"/>
 
+                <p th:text="${news.text}">text</p>
 
+                <span style="margin-bottom: 10px;"/>
 
-        <p><a href="/">Go back to frontpage</a></p>
+                Luontihetki: <p th:text="${timestamp}">timestamp</p>
+            </div>
+        </div>
     </body>
 </html>

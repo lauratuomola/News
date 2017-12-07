@@ -46,6 +46,7 @@ public class NewsController {
     public String get(Model model, @PathVariable Long id) {
         News news = this.newsRepository.getOne(id);
         model.addAttribute("news", news);
+        model.addAttribute("timestamp", news.getCreatedAt().toLocalDate().toString());
 
         return "news/get";
     }
