@@ -2,12 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
  
     <head>
-        <title>Category: ${category.name}</title>
+        <title>Uutiset</title>
         
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"/>
 
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
         <script src="https://www.w3schools.com/lib/w3.js"></script>
     </head>
 
@@ -15,13 +14,17 @@
         <header style="padding-bottom: 40px">
             <span w3-include-html="../navigation"></span>
         </header>
-            
-        <div class="main">
-            <h2>News</h2>
 
-            <section th:each="news: ${category.news}">
-                <h3 th:text="${news.header}">header</h3>
-            </section>
+        <div style="padding: 15px;" class="main">
+            <h2 th:text="${category.name}">Category name</h2>
+
+            <p style="margin-bottom: 20px; margin-top: 20px;">Kategoriaan liittyvät uutiset:</p>
+            
+            <ul>
+                <section th:each="news: ${category.news}">
+                    <li><a th:href="@{/news/{id}(id=${news.id})}" th:text="${news.header}">header</a></li>
+                </section>                
+            </ul>
         </div>
     </body>
 </html>
