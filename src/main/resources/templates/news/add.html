@@ -2,25 +2,21 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
     <head>
         <title>News</title>
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"/>
+
+        <script src="https://www.w3schools.com/lib/w3.js"></script>
     </head>
 
     <body>
-        <!-- <table>
-            <tr>
-                <th>News name</th>
-                <th></th>
-            </tr>
+        <header style="padding-bottom: 40px">
+            <span w3-include-html="../navigation"></span>
+        </header>
+        
+        <div class="main" style="padding: 15px;">
             
-            <tr th:each="news : ${news}">
-                <span th:text="${news.header}">News header</span> 
-                <span th:text="${news.createdAt}">News creat</span>
-                <form th:action="/news/@{/{id}(id=${news.id})}" th:method="DELETE"><input type="submit" value="Delete"/></form>
-            </tr>
-        </table> -->
-        
-        <h2 class="bg-success">Add a new piece of news</h2>
-        
-        <div style="padding: 15px;">
+            <h2 class="bg-success">Add a new piece of news</h2>
             
             <form th:action="@{/news}" method="POST" enctype="multipart/form-data">
                 <div class="row">
@@ -61,7 +57,10 @@
             </form>         
         </div>
 
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"/>
+        
     </body>
 </html>
+<script>
+    w3.includeHTML();
+</script>
+
