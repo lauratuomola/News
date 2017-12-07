@@ -1,7 +1,5 @@
-
 package wad.domain;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,36 +7,30 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
 @Entity
-
 @AllArgsConstructor
 @Data
 public class News extends AbstractPersistable<Long>{
     private String header;
     private String ingres;
-    private LocalDate newsDate;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
     private String text;
     
-      @ManyToMany
+    @ManyToMany
     private List<Category> categories;
     
     public News() {
-        this.newsDate = LocalDate.now();
+        this.createdAt = LocalDateTime.now();
+        this.updatedAt = LocalDateTime.now();
+        
+        this.categories = new ArrayList<>();
     }
-     public List<Category> getCategory() {
-        if (this.categories== null) {
-            this.categories = new ArrayList<>();
-        }
 
-        return this.categories;
-    }
-        public void addQuestion(Category category) {
+     public void addCategory(Category category) {
        this.categories.add(category);
     }
-    
-    
     
 }

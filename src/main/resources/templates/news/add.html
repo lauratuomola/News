@@ -2,19 +2,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
     <head>
         <title>News</title>
-
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"/>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
-
     </head>
 
     <body>
-        <p> All news in database </p>
-        
-                 
-        <table
+        <!-- <table>
             <tr>
                 <th>News name</th>
                 <th></th>
@@ -22,14 +13,14 @@
             
             <tr th:each="news : ${news}">
                 <span th:text="${news.header}">News header</span> 
-                <span th:text="${news.newsDate}">News newsDate</span>
-                <form th:action="@{/{news}(news=${news.id})}" th:method="DELETE"><input type="submit" value="Delete"/></form>
+                <span th:text="${news.createdAt}">News creat</span>
+                <form th:action="/news/@{/{id}(id=${news.id})}" th:method="DELETE"><input type="submit" value="Delete"/></form>
             </tr>
-        </table>
+        </table> -->
         
         <h2 class="bg-success">Add a new piece of news</h2>
         
-        <form th:action="@{/addnews}" method="POST" enctype="multipart/form-data">
+        <form th:action="@{/news}" method="POST" enctype="multipart/form-data">
             Header:<br></br>
             <input type="text"  name="header"/><br></br>
             Ingressi:<br></br>
@@ -38,18 +29,19 @@
             <textarea name="text" rows="10" cols="30"></textarea><br></br>
             Category:
              <select name="text">
-                <option th:each="category: ${categories}" th:value="${category.id}" th:text="${category.categoryName}">Category categoryName</option>
+                <option th:each="category: ${categories}" th:value="${category.id}" th:text="${category.name}">Category Name</option>
             </select><br></br>
             Add a photo: 
             <input type="file" name="file" id="file"/><br></br>
             <input type="submit" value="add"/>
 
         </form>
-        
-
-
+  
         <br></br>
-        <a href="/uutinen" th:href="@{/}">Go back to frontpage</a>
+        <a href="/">Go back to frontpage</a>
 
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"/>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>        
     </body>
 </html>
