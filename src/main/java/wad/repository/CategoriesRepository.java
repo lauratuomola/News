@@ -5,4 +5,5 @@ import wad.domain.Category;
 
 public interface CategoriesRepository extends JpaRepository<Category, Long> {
 
+    public Category findByName(String name);
 }

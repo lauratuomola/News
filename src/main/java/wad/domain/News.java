@@ -3,6 +3,7 @@ package wad.domain;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import lombok.AllArgsConstructor;
@@ -17,6 +18,8 @@ public class News extends AbstractPersistable<Long>{
     private String ingres;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
+    
+    @Column(name="TEXT", length = 5000)
     private String text;
     
     @ManyToMany

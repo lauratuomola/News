@@ -29,20 +29,16 @@ public class NewsController {
     }
 
     @PostMapping("news")
-    public String create(@RequestParam String header, String ingres, String text) {
+    public String create(@RequestParam String header, @RequestParam String ingres, @RequestParam String text, @RequestParam Long categoryId) {
         News news = new News();
 
         news.setHeader(header);
         news.setIngres(ingres);
         news.setText(text);
-
+        news.addCategory(categoryRepository.getOne(categoryId));
+        
         this.newsRepository.save(news);
 
-//        News news = newsRepository.getOne(newsId);
-//        Category category = categoryRepository.getOne(categoryId);
-//        
-//        category.getNews().add(news);
-//        news.getCategory().add(category);
         return "redirect:/news/" + news.getId();
     }
 

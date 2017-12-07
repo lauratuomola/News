@@ -20,28 +20,48 @@
         
         <h2 class="bg-success">Add a new piece of news</h2>
         
-        <form th:action="@{/news}" method="POST" enctype="multipart/form-data">
-            Header:<br></br>
-            <input type="text"  name="header"/><br></br>
-            Ingressi:<br></br>
-            <input type="text"  name="ingres"/><br></br>
-            Text:<br></br>
-            <textarea name="text" rows="10" cols="30"></textarea><br></br>
-            Category:
-             <select name="text">
-                <option th:each="category: ${categories}" th:value="${category.id}" th:text="${category.name}">Category Name</option>
-            </select><br></br>
-            Add a photo: 
-            <input type="file" name="file" id="file"/><br></br>
-            <input type="submit" value="add"/>
+        <div style="padding: 15px;">
+            
+            <form th:action="@{/news}" method="POST" enctype="multipart/form-data">
+                <div class="row">
+                    <label class="col-xs-4">Otsikko</label>
+                    <input class="col-xs-3" type="text" name="header"/>
 
-        </form>
-  
-        <br></br>
-        <a href="/">Go back to frontpage</a>
+                    <br><br>
+                </div>
+
+                <div class="row">
+                    <label class="col-xs-4">Ingressi</label>
+                    <input class="col-xs-3" type="text" name="ingres"/>
+
+                    <br><br>
+                </div>
+
+                <div class="row">
+                    <label class="col-xs-4">Teksti</label>
+                    <textarea class="col-xs-8" rows="10" name="text"></textarea>
+                </div>
+
+                <div style="margin-top: 20px;" class="row">
+                    <label class="col-xs-4">Kategoria</label>
+
+                    <select name="categoryId">
+                        <option th:each="category: ${categories}" th:value="${category.id}" th:text="${category.name}">Category Name</option>
+                    </select>
+
+                    <br><br>
+                </div>
+
+                <div class="row">
+                    <label class="col-xs-4">Kuva</label>
+                    <input type="file" name="file" id="file"/><br></br>
+                </div>            
+
+                <input class="btn btn-success" type="submit" value="Lisää"/>
+            </form>         
+        </div>
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"/>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>        
     </body>
 </html>
