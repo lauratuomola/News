@@ -2,14 +2,20 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
     <head>
         <title>News</title>
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"/>
+
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <script src="https://www.w3schools.com/lib/w3.js"></script>        
     </head>
 
     <body>
-        <div class="bg-success" id="myTopnav">
-            <a class="active" href="/news/add">Lisää uusi uutinen</a>
-            <a class="active" href="/categories/add">Lisää uusi kategoria</a>
-        </div>
-        <p>All categories:</p>
+        <header style="padding-bottom: 40px">
+            <span w3-include-html="../navigation"></span>
+        </header>        
+
+        <p>Kategoriat:</p>
          <table>
             <tr th:each="category: ${categories}">
                 <a th:href="@{/categories/{id}(id=${category.id})}" th:text="${category.name}">Category Name</a>
@@ -22,10 +28,9 @@
                 <a th:href="@{/news/{id}(id=${news.id})}" th:text="${news.header}+${news.ingres}">header ingres</a>
             </tr>
         </table>
-        
-           
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"/>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     </body>
 </html>
+
+<script>
+    w3.includeHTML();
+</script>

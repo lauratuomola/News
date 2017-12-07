@@ -1,28 +1,31 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+ 
     <head>
+        <title>Category: ${category.name}</title>
         
-        
-        <title>Category name</title>
-        
-         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"/>
+
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-        
+        <script src="https://www.w3schools.com/lib/w3.js"></script>
     </head>
 
     <body>
-        <h2>News</h2>
+        <header style="padding-bottom: 40px">
+            <span w3-include-html="../navigation"></span>
+        </header>
+            
+        <div class="main">
+            <h2>News</h2>
 
-        <section th:each="news: ${category.news}">
-            <h3 th:text="${news.header}">header</h3>
-
-        </section>
-    
-        
-        <p><a href="/">Go back to frontpage</a></p>
-       
-
-        
+            <section th:each="news: ${category.news}">
+                <h3 th:text="${news.header}">header</h3>
+            </section>
+        </div>
     </body>
 </html>
+
+<script>
+    w3.includeHTML();
+</script>

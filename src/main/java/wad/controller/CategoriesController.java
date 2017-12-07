@@ -22,9 +22,10 @@ public class CategoriesController {
     }
     
     @PostMapping("categories")
-    public String create(@RequestParam String name) {
+    public String create(@RequestParam String name, boolean inNavBar) {
         Category category = new Category();
         category.setName(name);
+        category.setInNavBar(inNavBar);
         categoryRepository.save(category);
         
         return "redirect:/categories/" + category.getId();

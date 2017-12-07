@@ -5,20 +5,29 @@
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"/>
+
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <script src="https://www.w3schools.com/lib/w3.js"></script>
     </head>
 
     <body>
-        <h2 class="bg-success">Add a new category</h2>
+        <header style="padding-bottom: 40px">
+            <span w3-include-html="../navigation"></span>
+        </header>
+            
+        <div class="main">
+            <h2 class="bg-success">Lisää uusi kategoria</h2>
 
-        <form th:action="@{/categories}" method="POST" enctype="multipart/form-data">
-            Category name:<br></br>
-            <input type="text"  name="name"/>
-            <input type="submit" value="add"/>
-        </form>
-
-
-        <br></br>
-        <a href="/">Go back to frontpage</a>
+            <form th:action="@{/categories}" method="POST" enctype="multipart/form-data">
+                Nimi:<br></br>
+                <input type="text"  name="name"/>
+                <input type="checkbox" name="inNavBar"/>
+                <input type="submit" value="add"/>
+            </form>
+        </div>
     </body>
 </html>
+
+<script>
+    w3.includeHTML();
+</script>

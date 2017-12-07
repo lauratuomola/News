@@ -1,6 +1,5 @@
 package wad.domain;
 
-import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
@@ -16,6 +15,7 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 
 public class Category extends AbstractPersistable<Long> {
     private String name;
+    private boolean inNavBar;
     
     @ManyToMany(mappedBy = "categories")
     private List<News> news;
