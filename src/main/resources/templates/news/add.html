@@ -16,30 +16,30 @@
         
         <div class="main" style="padding: 15px;">
             
-            <h2 class="bg-success">Add a new piece of news</h2>
+            <h2 class="bg-success">Uusi uutinen</h2>
             
             <form th:action="@{/news}" method="POST" enctype="multipart/form-data">
                 <div class="row">
-                    <label class="col-xs-4">Otsikko</label>
+                    <label class="col-xs-3">Otsikko</label>
                     <input class="col-xs-3" type="text" name="header"/>
 
                     <br><br>
                 </div>
 
                 <div class="row">
-                    <label class="col-xs-4">Ingressi</label>
+                    <label class="col-xs-3">Ingressi</label>
                     <input class="col-xs-3" type="text" name="ingres"/>
 
                     <br><br>
                 </div>
 
                 <div class="row">
-                    <label class="col-xs-4">Teksti</label>
+                    <label class="col-xs-3">Teksti</label>
                     <textarea class="col-xs-8" rows="10" name="text"></textarea>
                 </div>
 
                 <div style="margin-top: 20px;" class="row">
-                    <label class="col-xs-4">Kategoria</label>
+                    <label class="col-xs-3">Kategoria</label>
 
                     <select name="categoryId">
                         <option th:each="category: ${categories}" th:value="${category.id}" th:text="${category.name}">Category Name</option>
@@ -49,7 +49,7 @@
                 </div>
 
                 <div class="row">
-                    <label class="col-xs-4">Kuva</label>
+                    <label class="col-xs-3">Kuva</label>
                     <input type="file" name="file" id="file"/><br></br>
                 </div>            
 
