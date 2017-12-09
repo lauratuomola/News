@@ -5,7 +5,7 @@
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"/>
-        
+
         <script src="https://www.w3schools.com/lib/w3.js"></script>
     </head>
 
@@ -13,13 +13,13 @@
         <header style="padding-bottom: 40px">
             <span w3-include-html="../navigation"></span>
         </header>
-        
+
         <div class="main" style="padding: 15px;">
-            
+
             <h1 class="bg-success" th:text="${news.header}">header</h1>
-        
+
             <span style="margin-bottom: 30px;"/>
-                  
+
             <div style="padding: 15px;">
                 <strong>
                     <p th:text="${news.ingres}">ingressi</p>
@@ -29,16 +29,20 @@
 
                 <p th:text="${news.text}">text</p>
 
+                <div>
+                    <img th:src="@{/news/{id}(id=${news.id})}"/>
+                </div>
+
                 <span style="margin-bottom: 10px;"/>
 
                 Luontihetki: <p th:text="${timestamp}">timestamp</p>
             </div>
-            
+
             <span style="margin-top: 20px;"></span>
-            
+
             <div class="row" style="padding: 15px;">
                 <input class="btn btn-warning col-xs-3" value="Muokkaa uutista" disabled/>
-                
+
                 <form th:action="@{/news/{id}(id=${news.id})}" th:method="DELETE">
                     <input class="btn btn-danger col-xs-3 col-xs-offset-1" type="submit" value="Poista uutinen"/>
                 </form>

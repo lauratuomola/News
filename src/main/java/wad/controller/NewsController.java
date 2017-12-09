@@ -62,5 +62,11 @@ public class NewsController {
         newsRepository.deleteById(id);
         return "redirect:/";
     }
+    
+    @GetMapping(path = "/news/{id}", produces = "image/png")
+    @ResponseBody
+    public byte[] getImg(@PathVariable Long id) {
+        return newsRepository.getOne(id).getContent();
+    }  
 
 }
