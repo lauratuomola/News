@@ -37,6 +37,12 @@
 
                 Luontihetki: <p th:text="${timestamp}">timestamp</p>
             </div>
+            
+            <ul>
+            <li th:each="news : ${news}">
+                <span th:text="${news.header}">News header</span> <span th:text="${news.createdAt}">date</span>
+            </li>
+        </ul>
 
             <span style="margin-top: 20px;"></span>
 
