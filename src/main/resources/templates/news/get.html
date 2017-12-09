@@ -38,11 +38,17 @@
                 Luontihetki: <p th:text="${timestamp}">timestamp</p>
             </div>
             
+            <h4>5 uusinta uutista: </h4>
             <ul>
-            <li th:each="news : ${allnews}">
-                <span th:text="${news.header}">News header</span> <span th:text="${news.createdAt}">date</span>
-            </li>
-        </ul>
+                <li th:each="news: ${allnews}">
+                    
+                        <a th:href="@{/news/{id}(id=${news.id})}" th:text="${news.header}">header</a>
+                        <span th:text="${news.createdAt}">date</span>
+                        
+                    
+                </li>
+            </ul> 
+            
 
             <span style="margin-top: 20px;"></span>
 
