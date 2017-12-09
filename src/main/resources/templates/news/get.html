@@ -39,7 +39,7 @@
             </div>
             
             <ul>
-            <li th:each="news : ${news}">
+            <li th:each="news : ${allnews}">
                 <span th:text="${news.header}">News header</span> <span th:text="${news.createdAt}">date</span>
             </li>
         </ul>

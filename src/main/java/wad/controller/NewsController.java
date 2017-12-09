@@ -1,6 +1,8 @@
 package wad.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -53,6 +55,8 @@ public class NewsController {
         News news = this.newsRepository.getOne(id);
         model.addAttribute("news", news);
         model.addAttribute("timestamp", news.getCreatedAt().toLocalDate().toString());
+        PageRequest pageable =  PageRequest.of(0, 5, Sort.Direction.DESC, "createdAt");
+        model.addAttribute("allnews", newsRepository.findAll(pageable));
 
         return "news/get";
     }
