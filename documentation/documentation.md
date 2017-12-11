@@ -2,7 +2,7 @@
 
 ##Kuvaus
 Tavoitteena oli rakentaa oma uutissivusto, josta löytyy erilaisia toiminnallisuuksia uutisiin liittyen.
-Itse toteuttamassani sovelluksessa etusivulla näkyy viisi uusinta uutista (otsikko ja ingressi) 
+Toteuttamassani sovelluksessa etusivulla näkyy viisi uusinta uutista (otsikko ja ingressi) 
 ja niitä klikkaamalla pääsee näkemään itse uutisen. Yläpalkissa on toiminnallisuus uutisen ja kategorian 
 lisäämiseen sekä kaikki kategoriat, jotka on haluttu näyttää erikseen yläpalkissa. 
 Näiden toiminnallisuuksien lisäksi yläpalkista löytyy linkit, 
@@ -11,10 +11,12 @@ Ulkoasuun käytin boostrap- kirjastoa.
 
 ##Yleisimmät käyttötapaukset:
 Uutisia ja kategorioita pystyy lisäämään (yläpalkista "Lisää uutinen/kategoria" ja poistamaan 
-(tämä toiminnallisuus löytyy, kun spesifin uutisen/kategorian avaa). 
-(myös muokkaus nappi löytyy mutta sitä ei pysty klikkaamaan eli muokkausmahdollisuutta ei ole)
+(tämä toiminnallisuus löytyy, kun kyseisen uutisen/kategorian avaa). 
+Kategoriaa lisätessä voi myös valita, näkyykö kategoria yläpalkissa vai ei.
+(myös muokkausnappi löytyy mutta sitä ei pysty klikkaamaan eli muokkausmahdollisuutta ei ole.)
 Käyttäjä pystyy tarkastelemaan uutisia yläpalkista löytyvän navigaatiopalkin avulla kategorioittain.
-Käyttäjä pystyy listaamaan kaikki uutiset ja kaikki kategoriat navigaatiopalkin linkkien avulla.
+Käyttäjä pystyy listaamaan kaikki uutiset ja kaikki kategoriat 
+(myös ne kategoriat, joita ei yläpalkissa näytetä) navigaatiopalkin linkkien avulla.
 Käyttäjä pystyy lukemaan uutisia (uutisten otsikot ovat linkkejä itse uutiseen). 
 Jokaisella uutissivustolla on myös listattuna 5 uusinta uutista linkkeinä, 
 joiden kautta pääsee lukemaan kyseisiä uutisia.
